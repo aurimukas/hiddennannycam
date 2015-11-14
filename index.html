@@ -15,9 +15,9 @@
         <link rel="apple-touch-icon" sizes="144x144" href="img/favicon-retina-ipad.png">
         <!-- Retina iPhone Touch Icon-->
         <link rel="apple-touch-icon" sizes="114x114" href="img/favicon-retina-iphone.png">
-        <!-- Standard iPad Touch Icon--> 
+        <!-- Standard iPad Touch Icon-->
         <link rel="apple-touch-icon" sizes="72x72" href="img/favicon-standard-ipad.png">
-        <!-- Standard iPhone Touch Icon--> 
+        <!-- Standard iPhone Touch Icon-->
         <link rel="apple-touch-icon" sizes="57x57" href="img/favicon-standard-iphone.png">
 
         <!-- ============== Resources style ============== -->
@@ -26,7 +26,7 @@
 		<!-- Modernizr runs quickly on page load to detect features -->
 		<script src="js/modernizr.custom.js"></script>
 	</head>
-	
+
 	<body>
 
 		<!-- Page preloader -->
@@ -53,11 +53,14 @@
 				<h1 class="text-intro opacity-0">Hey Guys!<br>
 					We're Coming Soon...</h1>
 
-				<h2 class="text-intro opacity-0">Perfect and awesome template to present your future product or service.<br>
-					Hooking audience attention is all in the opener.</h2>
+				<h2 class="text-intro opacity-0">Perfect and awesome nanny cams are on the way!<br>
+					You Can't misse it!</h2>
 
 				<nav>
 					<ul>
+						<li>
+							<a href="#" id="open-more-info" data-target="right-side" class="light-btn text-intro opacity-0">More Informations</a>
+						</li>
 						<li>
 							<a data-dialog="somedialog" class="action-btn trigger text-intro opacity-0">Notify Me!</a>
 						</li>
@@ -69,17 +72,191 @@
 		</section>
 		<!-- END - Home/Left Part -->
 
+		<!-- START - More Informations/Right Part -->
+		<section id="right-side" class="hide-right">
+
+			<div class="content">
+
+				<h3>Light, Versatile & Surprising</h3>
+
+				<p>
+					Hey, we're already done with Coming Soon website!
+					<br><br>
+
+					<div class="photo-line">
+
+						<div class="my-gallery row" itemscope itemtype="http://schema.org/ImageGallery">
+
+							<!-- Item -->
+							<figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject" class="col-xs-12 col-sm-6 col-lg-6 clear-second">
+
+								<!-- Link to the picture and to open the gallery / Fill up well the data-size property -->
+								<a class="box-picture" href="img/gallery-1.jpg" itemprop="contentUrl" data-size="1920x1280">
+
+									<!-- Your picture -->
+									<img src="img/gallery-1.jpg" itemprop="thumbnail" alt="This is my work" class="img-responsive" />
+				<p>Click</p>
+
+				</a>
+
+				<!-- Picture's description below this one -->
+				<figcaption itemprop="caption description">
+
+					<div class="photo-details">
+
+						<h4>Fly in the sky</h4>
+
+						<span class="border"></span>
+
+						<p>This is what I love, and can't stop loving! I'm told to enjoy every moment, every hour, every minute.</p>
+
+					</div>
+
+				</figcaption>
+
+				</figure>
+
+				<!-- Item -->
+				<figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject" class="col-xs-12 col-sm-6 col-lg-6">
+
+					<!-- Link to the picture and to open the gallery / Fill up well the data-size property -->
+					<a class="box-picture" href="img/gallery-2.jpg" itemprop="contentUrl" data-size="1920x1280">
+
+						<!-- Your picture -->
+						<img src="img/gallery-2.jpg" itemprop="thumbnail" alt="This is my work" class="img-responsive" />
+						<p>Click</p>
+
+					</a>
+
+					<!-- Picture's description below this one -->
+					<figcaption itemprop="caption description">
+
+						<div class="photo-details">
+
+							<h4>探索世界</h4>
+
+							<span class="border"></span>
+
+							<p>This is what I love, and can't stop loving! I'm told to enjoy every moment, every hour, every minute.</p>
+
+						</div>
+
+					</figcaption>
+
+				</figure>
+
+			</div>
+
+			</div>
+
+			<span class="separator"></span>
+
+			<h3>Get in touch with us!</h3>
+
+			<p>Wanna say hello?</p>
+
+			<!-- START - Contact Form -->
+			<form id="contact-form" name="contact-form" method="POST" data-name="Contact Form">
+
+				<div class="row">
+
+					<!-- Full name -->
+					<div class="col-xs-12 col-sm-6 col-lg-6">
+						<div class="form-group">
+							<input type="text" id="name" class="form form-control" placeholder="Your Name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Your Name'" name="name" data-name="Name" required>
+						</div>
+					</div>
+
+					<!-- E-mail -->
+					<div class="col-xs-12 col-sm-6 col-lg-6">
+						<div class="form-group">
+							<input type="email" id="email" class="form form-control" placeholder="Your Email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Your Email'" name="email-address" data-name="Email Address" required>
+						</div>
+					</div>
+
+					<!-- Subject -->
+					<div class="col-xs-12 col-sm-12 col-lg-12">
+						<div class="form-group">
+							<input type="text" id="subject" class="form form-control" placeholder="Write the subject" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Write the subject'" name="subject" data-name="Subject">
+						</div>
+					</div>
+
+					<!-- Message -->
+					<div class="col-xs-12 col-sm-12 col-lg-12 no-padding">
+						<div class="form-group">
+							<textarea id="text-area" class="form textarea form-control" placeholder="Your message here... 20 characters Min." onfocus="this.placeholder = ''" onblur="this.placeholder = 'Your message here... 20 characters Min.'" name="message" data-name="Text Area" required></textarea>
+						</div>
+					</div>
+
+				</div>
+
+				<!-- Button submit -->
+				<button type="submit" id="valid-form" class="btn btn-color">Send my Message</button>
+
+			</form>
+			<!-- END - Contact Form -->
+
+			<!-- Answer for the contact form is displayed in the next div, do not remove it. -->
+			<div id="block-answer">
+
+				<div id="answer"></div>
+
+			</div>
+
+			<div class="info-contact row">
+
+				<div class="col-xs-12 col-sm-4 col-lg-4 item-map">
+					<div class="contact-item"><i class="icon ion-ios-telephone"></i>
+						<p>Phone: (+1) 619-22-22-222
+							<br>Fax: (+1) 619-1254-989</p>
+					</div>
+				</div>
+
+				<div class="col-xs-12 col-sm-4 col-lg-4 item-map">
+					<div class="contact-item"><i class="icon ion-ios-location"></i>
+						<p>
+                            360 Grand Beverly Route,
+							<br>CA 90210, USA
+                        </p>
+					</div>
+				</div>
+
+				<div class="col-xs-12 col-sm-4 col-lg-4 item-map">
+					<div class="contact-item"><i class="icon ion-ios-email"></i>
+						<p>
+							<a href="mailto:hello [at] hidden-nanny-cam.com">hello@hidden-nanny-cam.com</a>
+						</p>
+					</div>
+				</div>
+
+			</div>
+
+			</div>
+			<!-- /. Content -->
+
+			<footer>
+
+				<p>© Hidden Nanny Cam - To keep you calm!</p>
+
+			</footer>
+
+		</section>
+		<!-- START - More Informations/Right Part -->
+
+		<!-- Button Cross to close the More Informations/Right Part -->
+		<button id="close-more-info" class="hide-close"><i class="icon ion-ios-close-outline"></i></button>
+
 		<!-- START - Newsletter Popup -->
 		<div id="somedialog" class="dialog">
 
 			<div class="dialog__overlay"></div>
-					
+
 			<div class="dialog__content">
-						
+
 				<div class="dialog-inner">
-							
+
 					<h4>You like taking the lead of line?</h4>
-							
+
 					<p>Being the first to know always feels great... Signing up to our newsletter gives you <strong>exclusive access to our Grand Opening!</strong></p>
 
 					<!-- Newsletter Form -->
@@ -90,7 +267,7 @@
 		                    <div class="form-group">
 
 		                        <div class="controls">
-		                            
+
 		                        	<!-- Field  -->
 		                        	<input type="text" id="mail-sub" name="email" placeholder="Click here to write your email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Click here to write your email'" class="form-control email srequiredField" />
 
@@ -130,24 +307,24 @@
 
 			</div>
 			<!-- /. dialog__content -->
-						
+
 		</div>
 		<!-- END - Newsletter Popup -->
 
 	<!-- ///////////////////\\\\\\\\\\\\\\\\\\\ -->
     <!-- ********** Resources jQuery ********** -->
     <!-- \\\\\\\\\\\\\\\\\\\/////////////////// -->
-	
+
 	<!-- * Libraries jQuery, Easing and Bootstrap - Be careful to not remove them * -->
 	<script src="js/jquery.min.js"></script>
 	<script src="js/jquery.easings.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 
 	<!-- PhotoSwipe Core JS file -->
-	<script src="js/velocity.min.js"></script> 
+	<script src="js/velocity.min.js"></script>
 
 	<!-- PhotoSwipe UI JS file -->
-	<script src="js/velocity.ui.min.js"></script> 
+	<script src="js/velocity.ui.min.js"></script>
 
 	<!-- Newsletter plugin -->
 	<script src="js/notifyMe.js"></script>
@@ -167,7 +344,7 @@
 
 	<!-- Main JS File -->
 	<script src="js/main.js"></script>
-	
+
 	<!--[if lt IE 10]><script type="text/javascript" src="js/placeholder.js"></script><![endif]-->
 
 	</body>
