@@ -20,7 +20,7 @@ $STORE_FILE = $_SERVER["DOCUMENT_ROOT"]."/subscription-list.txt";
 // Don't forget to check the path below
 /* ************************************ */
  
-require('MailChimp.php');
+require('php/MailChimp.php');
 
 /* ***************************************************** */
 // For the part below, no interventions are required
