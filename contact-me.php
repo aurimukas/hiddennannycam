@@ -54,7 +54,7 @@ if($_POST) {
     $message = new SendGrid\Email();
     $message->addTo($to_Email)->
               setFrom($_POST["userEmail"])->
-              setFromName($_POST["userName"]))->
+              setFromName($_POST["userName"])->
               setSubject('Hidden-Nanny-Cam contact form: ' . $_POST["userSubject"]))->
               setText(strip_tags($emailcontent))->
               setHtml($emailcontent);
