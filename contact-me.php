@@ -59,7 +59,7 @@ if($_POST) {
 
     $message = Swift_Message::newInstance("[Contact Us Form] " . $_POST["userSubject"]);
     $message->setBody($emailcontent, 'text/html', 'UTF-8');
-    $message->setTo(array('info@hidden-nanny-com.com' => 'Hidden Nanny Cam'))
+    $message->setTo(array($to_Email => 'Hidden Nanny Cam'))
         ->setFrom(array($_POST["userEmail"] => $_POST["userName"]))
         ->setReturnPath('aurimas@hidden-nanny-cam.com');
 
