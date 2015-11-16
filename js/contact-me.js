@@ -13,7 +13,11 @@ $(document).ready(function() {
         post_data = {'userName':user_name, 'userEmail':user_email, 'userSubject':user_subject, 'userMessage':user_message};
        
         // Ajax post data to server
+<<<<<<< HEAD
         $.post('contact-me.php', post_data, function(response){
+=======
+        $.post('php/contact-me.php', post_data, function(response){  
+>>>>>>> heroku/master
            
             // Load json data from server and output message    
             if(response.type == 'error') {
