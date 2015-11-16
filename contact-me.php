@@ -43,10 +43,10 @@ if($_POST) {
     // Proceed with PHP email
     $headers = 'MIME-Version: 1.0' . "\r\n";
     $headers .= 'Content-type:text/html;charset=UTF-8' . "\r\n";
-    $headers .= 'From: no-reply@hidden-nanny-com.com' . "\r\n";
+    $headers .= 'From: Hidden Nanny Cam - Contact Us Form <no-reply@hidden-nanny-com.com>' . "\r\n";
     $headers .= 'Reply-To: '.$_POST["userEmail"]."\r\n";
 
-    'X-Mailer: PHP/' . phpversion();
+    $headers .= 'X-Mailer: PHP/' . phpversion();
 
     // Body of the Email received in your Mailbox
     $emailcontent = 'Hey! You have received a new message from the visitor <strong>'.$_POST["userName"].'</strong><br/><br/>'. "\r\n" .
