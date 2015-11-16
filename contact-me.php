@@ -40,27 +40,22 @@ if($_POST) {
         die($output);
     }
 
-    // Proceed with SendGrid email
+    // Proceed with PHP email
+    $headers = 'MIME-Version: 1.0' . "\r\n";
+    $headers .= 'Content-type:text/html;charset=UTF-8' . "\r\n";
+    $headers .= 'From: My website' . "\r\n";
+    $headers .= 'Reply-To: '.$_POST["userEmail"]."\r\n";
 
-    require 'vendor/autoload.php';
-    $sendgrid = new SendGrid('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');
-
+    'X-Mailer: PHP/' . phpversion();
 
     // Body of the Email received in your Mailbox
     $emailcontent = 'Hey! You have received a new message from the visitor <strong>'.$_POST["userName"].'</strong><br/><br/>'. "\r\n" .
                 'His message: <br/> <em>'.$_POST["userMessage"].'</em><br/><br/>'. "\r\n" .
                 '<strong>Feel free to contact '.$_POST["userName"].' via email at : '.$_POST["userEmail"].'</strong>' . "\r\n" ;
 
-    $message = new SendGrid\Email();
-    $message->addTo($to_Email)->
-              setFrom($_POST["userEmail"])->
-              setFromName($_POST["userName"])->
-              setSubject('Hidden-Nanny-Cam contact form: ' . $_POST["userSubject"])->
-              setText(strip_tags($emailcontent))->
-              setHtml($emailcontent);
-    $response = $sendgrid->send($message);
+    $Mailsending = @mail($to_Email, $_POST["userSubject"], $emailcontent, $headers);
 
-    if($response->getCode() != 200) {
+    if(!$Mailsending) {
 
         //If mail couldn't be sent output error. Check your PHP email configuration (if it ever happens)
         $output = json_encode(array('type'=>'error', 'text' => '<i class="icon ion-close-round"></i> Oops! Looks like something went wrong, please check your PHP mail configuration.'));
