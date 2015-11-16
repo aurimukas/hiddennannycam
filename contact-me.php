@@ -43,7 +43,7 @@ if($_POST) {
     // Proceed with PHP email
     $headers = 'MIME-Version: 1.0' . "\r\n";
     $headers .= 'Content-type:text/html;charset=UTF-8' . "\r\n";
-    $headers .= 'From: Hidden Nanny Cam - Contact Us Form <no-reply@hidden-nanny-com.com>' . "\r\n";
+    $headers .= 'From: Hidden Nanny Cam <no-reply@hidden-nanny-com.com>' . "\r\n";
     $headers .= 'Reply-To: '.$_POST["userEmail"]."\r\n";
 
     $headers .= 'X-Mailer: PHP/' . phpversion();
@@ -53,7 +53,7 @@ if($_POST) {
                 'His message: <br/> <em>'.$_POST["userMessage"].'</em><br/><br/>'. "\r\n" .
                 '<strong>Feel free to contact '.$_POST["userName"].' via email at : '.$_POST["userEmail"].'</strong>' . "\r\n" ;
 
-    $Mailsending = @mail($to_Email, $_POST["userSubject"], $emailcontent, $headers);
+    $Mailsending = @mail($to_Email, "[Contact Us Form] " . $_POST["userSubject"], $emailcontent, $headers);
 
     if(!$Mailsending) {
 
