@@ -43,7 +43,7 @@ if($_POST) {
     // Proceed with PHP email
     $headers = 'MIME-Version: 1.0' . "\r\n";
     $headers .= 'Content-type:text/html;charset=UTF-8' . "\r\n";
-    $headers .= 'From: My website' . "\r\n";
+    $headers .= 'From: no-reply@hidden-nanny-com.com' . "\r\n";
     $headers .= 'Reply-To: '.$_POST["userEmail"]."\r\n";
 
     'X-Mailer: PHP/' . phpversion();
