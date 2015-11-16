@@ -53,9 +53,9 @@ if($_POST) {
                 'His message: <br/> <em>'.$_POST["userMessage"].'</em><br/><br/>'. "\r\n" .
                 '<strong>Feel free to contact '.$_POST["userName"].' via email at : '.$_POST["userEmail"].'</strong>' . "\r\n" ;
 
-    require __DIR__ . '/vendor/autoload.php';
+    //require __DIR__ . '/vendor/autoload.php';
 
-    require_once 'lib/swift_required.php';
+    require_once __DIR__ . '/vendor/swiftmailer/swiftmailer/lib/swift_required.php';
 
     $message = Swift_Message::newInstance("[Contact Us Form] " . $_POST["userSubject"]);
     $message->setBody($emailcontent, 'text/html', 'UTF-8');
