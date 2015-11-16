@@ -41,21 +41,37 @@ if($_POST) {
     }
 
     // Proceed with PHP email
-    $headers = 'MIME-Version: 1.0' . "\r\n";
+    /*$headers = 'MIME-Version: 1.0' . "\r\n";
     $headers .= 'Content-type:text/html;charset=UTF-8' . "\r\n";
     $headers .= 'From: Hidden Nanny Cam <info@hidden-nanny-com.com>' . "\r\n";
     $headers .= 'Reply-To: '.$_POST["userEmail"]."\r\n";
 
-    $headers .= 'X-Mailer: PHP/' . phpversion();
+    $headers .= 'X-Mailer: PHP/' . phpversion();*/
 
     // Body of the Email received in your Mailbox
     $emailcontent = 'Hey! You have received a new message from the visitor <strong>'.$_POST["userName"].'</strong><br/><br/>'. "\r\n" .
                 'His message: <br/> <em>'.$_POST["userMessage"].'</em><br/><br/>'. "\r\n" .
                 '<strong>Feel free to contact '.$_POST["userName"].' via email at : '.$_POST["userEmail"].'</strong>' . "\r\n" ;
 
-    $Mailsending = @mail($to_Email, "[Contact Us Form] " . $_POST["userSubject"], $emailcontent, $headers);
+    require __DIR__ . '/vendor/autoload.php';
 
-    if(!$Mailsending) {
+    require_once 'lib/swift_required.php';
+
+    $message = Swift_Message::newInstance("[Contact Us Form] " . $_POST["userSubject"]);
+    $message->setBody($emailcontent, 'text/html', 'UTF-8');
+    $message->setTo(array('info@hidden-nanny-com.com' => 'Hidden Nanny Cam'))
+        ->setFrom(array($_POST["userEmail"] => $_POST["userName"]))
+        ->setReturnPath('aurimas@hidden-nanny-cam.com');
+
+    $transport = Swift_SendmailTransport::newInstance();
+    $mailer = Swift_Mailer::newInstance($transport);
+
+    $numSent = $mailer->send($message);
+
+    //$Mailsending = @mail($to_Email, "[Contact Us Form] " . $_POST["userSubject"], $emailcontent, $headers);
+
+    //if(!$Mailsending) {
+    if(!$numSent) {
 
         //If mail couldn't be sent output error. Check your PHP email configuration (if it ever happens)
         $output = json_encode(array('type'=>'error', 'text' => '<i class="icon ion-close-round"></i> Oops! Looks like something went wrong, please check your PHP mail configuration.'));
