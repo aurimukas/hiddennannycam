@@ -56,13 +56,11 @@ if($_POST) {
     require_once __DIR__ . '/vendor/swiftmailer/swiftmailer/lib/swift_required.php';
 
     $message = Swift_Message::newInstance("[Contact Us Form] " . $_POST["userSubject"]);
+    $message->setFrom(array('no_reply@hidden-nanny-cam.com' => $_POST["userName"]));
+    $message->setReturnPath('aurimas@hidden-nanny-cam.com');
+    $message->setTo('aurimas@hidden-nanny-cam.com');
     $message->setBody($emailcontent, 'text/html', 'UTF-8');
-    $message->setTo(array(
-      'aurimas@hidden-nanny-cam.com' => 'Aurimas',
-      'lee@hidden-nanny-cam.com' => 'Lee',
-    ));
-    $message->setFrom(array('info@hidden-nanny-cam.com' => $_POST["userName"]))
-        ->setReturnPath('aurimas@hidden-nanny-cam.com');
+    $message->setReplyTo($_POST['userEmail']);
 
     $transport = Swift_SendmailTransport::newInstance();
     $mailer = Swift_Mailer::newInstance($transport);
