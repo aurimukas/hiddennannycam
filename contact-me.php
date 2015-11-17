@@ -38,27 +38,17 @@ if($_POST) {
         die($output);
     }
 
-    // Proceed with PHP email
-    /*$headers = 'MIME-Version: 1.0' . "\r\n";
-    $headers .= 'Content-type:text/html;charset=UTF-8' . "\r\n";
-    $headers .= 'From: Hidden Nanny Cam <info@hidden-nanny-com.com>' . "\r\n";
-    $headers .= 'Reply-To: '.$_POST["userEmail"]."\r\n";
-
-    $headers .= 'X-Mailer: PHP/' . phpversion();*/
-
     // Body of the Email received in your Mailbox
     $emailcontent = 'Hey! You have received a new message from the visitor <strong>'.$_POST["userName"].'</strong><br/><br/>'. "\r\n" .
                 'His message: <br/> <em>'.$_POST["userMessage"].'</em><br/><br/>'. "\r\n" .
                 '<strong>Feel free to contact '.$_POST["userName"].' via email at : '.$_POST["userEmail"].'</strong>' . "\r\n" ;
-
-    //require __DIR__ . '/vendor/autoload.php';
 
     require_once __DIR__ . '/vendor/swiftmailer/swiftmailer/lib/swift_required.php';
 
     $message = Swift_Message::newInstance("[Contact Us Form] " . $_POST["userSubject"]);
     $message->setFrom(array('no_reply@hidden-nanny-cam.com' => $_POST["userName"]));
     $message->setReturnPath('aurimas@hidden-nanny-cam.com');
-    $message->setTo('aurimas@hidden-nanny-cam.com');
+    $message->setTo('info@hidden-nanny-cam.com');
     $message->setBody($emailcontent, 'text/html', 'UTF-8');
     $message->setReplyTo($_POST['userEmail']);
 
@@ -67,9 +57,6 @@ if($_POST) {
 
     $numSent = $mailer->send($message);
 
-    //$Mailsending = @mail($to_Email, "[Contact Us Form] " . $_POST["userSubject"], $emailcontent, $headers);
-
-    //if(!$Mailsending) {
     if(!$numSent) {
 
         //If mail couldn't be sent output error. Check your PHP email configuration (if it ever happens)
