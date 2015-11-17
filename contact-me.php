@@ -1,8 +1,6 @@
 <?php
 if($_POST) {
 
-    $to_Email = "info@hidden-nanny-cam.com"; // Write your email here
-
     // Use PHP To Detect An Ajax Request
     if(!isset($_SERVER['HTTP_X_REQUESTED_WITH']) AND strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) != 'xmlhttprequest') {
 
@@ -59,8 +57,11 @@ if($_POST) {
 
     $message = Swift_Message::newInstance("[Contact Us Form] " . $_POST["userSubject"]);
     $message->setBody($emailcontent, 'text/html', 'UTF-8');
-    $message->setTo(array($to_Email => 'Hidden Nanny Cam'))
-        ->setFrom(array($_POST["userEmail"] => $_POST["userName"]))
+    $message->setTo(array(
+      'aurimas@hidden-nanny-cam.com' => 'Aurimas',
+      'lee@hidden-nanny-cam.com' => 'Lee',
+    ));
+    $message->setFrom(array('info@hidden-nanny-cam.com' => $_POST["userName"]))
         ->setReturnPath('aurimas@hidden-nanny-cam.com');
 
     $transport = Swift_SendmailTransport::newInstance();
